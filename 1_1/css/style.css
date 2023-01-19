@@ -1,8 +1,8 @@
-.container {
-    width: 400px;
-    margin: auto;
-    background-color: gainsboro;
-    padding: 10px;
-    margin-top: 100px;
+* {
+    margin: 0;
+    padding: 0;
 }
 
+#floatingTextarea2 {
+    overflow-y: auto;
+}
