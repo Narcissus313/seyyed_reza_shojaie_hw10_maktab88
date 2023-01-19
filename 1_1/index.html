@@ -12,37 +12,44 @@
 </head>
 
 <body>
-    <div class="container-fluid mt-4 px-5">
-        https://reqres.in/api/users/2
+    <div class="container-fluid mt-4">
+        https://reqres.in/api/users/2<br>
+        https://reqres.in/api/users
         <br>
         <br>
         <!-- options selection -->
-        <div class="row py-3 px-1 m-2 border border-1 justify-content-center align-items-center">
+        <div class="row py-3 border border-1 align-items-center px-5">
 
 
-            <div class="h-25 px-0 col-sm-12 col-lg-6 row pt-1 m-2">
-                <span class="input-group-text col-3 mx-1 text-center px-4" id="url">URL input</span>
-                <input type="text" class="form-control border border-1 col" aria-label="Example input"
-                    aria-describedby="inputGroup">
+            <div class="col-md-7 col-sm-12">
+                <div class="h-25 px-0 row pt-1">
+                    <span class="input-group-text col-2 col-sm-5 mx-1 text-center" id="url">URL input</span>
+                    <input type="text" class="form-control border border-1 col" aria-label="Example input"
+                        aria-describedby="inputGroup">
+                </div>
             </div>
 
-            <div class="select d-flex justify-content-center align-items-center col-sm-12 col-lg-3 m-2">
-                <select name="requests" id="select-method" class="form-select border border-1 px-1">
-                    <option value="" active>choose an option</option>
-                    <option value="GET">get</option>
-                    <option value="POST">post</option>
-                </select>
+            <div class="col-md-3 col-sm-12">
+                <div class="select d-flex justify-content-center align-items-center mt-2 px-0 mx-0">
+                    <select name="requests" id="select-method" class="form-select border border-1 mx-0">
+                        <option value="" active>choose an option</option>
+                        <option value="GET">get</option>
+                        <option value="POST">post</option>
+                    </select>
+                </div>
             </div>
 
-            <a href="#" class="btn btn-success btn-lg active h-25 col-sm-12 col-lg-2 m-2" role="button"
-                id="btn-get-json" aria-pressed="true">Submit</a>
+            <div class="col-md-2 col-sm-12 d-flex justify-content-center"><a href="#"
+                    class="btn btn-success w-100 btn-lg active h-25 float-end mt-2" role="button" id="btn-get-json"
+                    aria-pressed="true">Submit</a></div>
+
 
 
         </div>
 
 
         <!-- for get -->
-        <div class="get d-none row">
+        <div class="get d-none row px-5">
             <div class="form-floating mt-4 ms-2 row" id="div-json-body">
                 <textarea class="form-control col" id="text-area-get" style="height: 200px"></textarea>
                 <label for="floatingTextarea2" class="px-5">Response Body</label>
@@ -53,20 +60,21 @@
 
         <!-- for post -->
         <div class="post d-none row">
-            <div class="form-floating mt-4 col ms-2" id="div-request-body">
+            <div class="form-floating mt-4 col-sm-12 col-md-6" id="div-request-body">
                 <textarea class="form-control" style="height: 200px"></textarea>
                 <label for="floatingTextarea2" class="px-5">Request Body</label>
             </div>
 
-            <div class="form-floating mt-4 col ms-2" id="div-response-body">
+            <div class="form-floating mt-4 col-sm-12 col-md-6" id="div-response-body">
                 <textarea class="form-control" style="height: 200px"></textarea>
                 <label for="floatingTextarea2" class="px-5">Response Body</label>
             </div>
+
         </div>
 
 
         <!-- status  -->
-        <div class="input-group h-25 mt-4 col">
+        <div class="input-group h-25 mt-4 col px-5">
             <span class="input-group-text bg-primary text-light">Status</span>
             <input type="text" class="form-control border border-1" aria-label="Example input"
                 aria-describedby="inputGroup" id="status">
