@@ -1,4 +1,4 @@
-let nameRegex = /^[a-z\s]{3,30}$/i; //letters, nums and underline
+let nameRegex = /^[a-z\s]{1,30}$/i; //letters, nums and underline
 let emailRegex = /^[a-zA-Z0-9_\.-]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+$/;
 let passwordRegex =
 	/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/; //letters(lowerCase and upperCase, numbers and special characters)

@@ -1,0 +1,14 @@
+img {
+    height: 320px;
+    margin-top: 500px;
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+#pagesUl {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

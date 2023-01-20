@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="fav icon" href="#">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Cards</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <!--nav start-->
+    <nav class="navbar navbar-expand-lg navbar bg-dark" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold text-primary" href="#">Users List</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./about.html">About</a>
+                    </li>
+                </ul>
+                <form class="d-flex" id="form">
+                    <input class="form-control me-2" placeholder="Search" aria-label="Search" autocomplete="off" id="inputSearchbar">
+                    <button type="button" class="btn btn-primary" id="btnSearch">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <!--nav end-->
+
+    <!--card container start-->
+    <div class="container-lg my-2 py-5">
+        <div class="row" id="usersList"></div>
+    </div>
+    <!--card container  end-->
+
+    <!--pagination start-->
+    <nav class="col-1 mx-auto mb-5" aria-label="..." id="nav">
+        <ul class="col-1 mx-auto pagination pagination-md " id="pagesUl">
+        </ul>
+    </nav>
+    <!--pagination end-->
+
+    <!--modal start-->
+    <div class="modal fade" tabindex="-1" id="userProfileModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-primary mt-2"></h5>
+                </div>
+                <div class="modal-body p-0"></div>
+                <!-- <div class="modal-footer border-0"></div> -->
+            </div>
+        </div>
+    </div>
+    <!--modal end-->
+</body>
+<script src="./js/user-data.js"></script>
+<script src="./js/bootstrap.bundle.min.js"></script>
+<script src="./js/main.js"></script>
+
+</html>
