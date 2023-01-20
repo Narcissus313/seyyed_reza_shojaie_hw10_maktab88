@@ -1,8 +1,7 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
 #floatingTextarea2 {
     overflow-y: auto;
+}
+
+img.col {
+    max-height: 600px;
 }

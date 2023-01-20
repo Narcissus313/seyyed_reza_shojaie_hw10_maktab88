@@ -12,26 +12,25 @@
 </head>
 
 <body>
-    <div class="container-fluid mt-4">
+    <div class="container mt-4">
         https://reqres.in/api/users/2<br>
         https://reqres.in/api/users
         <br>
         <br>
         <!-- options selection -->
-        <div class="row py-3 border border-1 align-items-center px-5">
+        <div class="row align-items-center justify-content-around">
 
-
-            <div class="col-md-7 col-sm-12">
-                <div class="h-25 px-0 row pt-1">
-                    <span class="input-group-text col-2 col-sm-5 mx-1 text-center" id="url">URL input</span>
-                    <input type="text" class="form-control border border-1 col" aria-label="Example input"
-                        aria-describedby="inputGroup">
+            <div class="col-12 col-md-7 mb-3 mt-3" style="margin: auto">
+                <div class="input-group">
+                    <span class="input-group-text" id="url">URL input</span>
+                    <input type="text" class="form-control" placeholder="Username" aria-label="Username"
+                        aria-describedby="basic-addon1">
                 </div>
             </div>
 
-            <div class="col-md-3 col-sm-12">
-                <div class="select d-flex justify-content-center align-items-center mt-2 px-0 mx-0">
-                    <select name="requests" id="select-method" class="form-select border border-1 mx-0">
+            <div class="col-12 col-md-3 mt-3 mb-3">
+                <div class="select">
+                    <select name="requests" id="select-method" class="form-select">
                         <option value="" active>choose an option</option>
                         <option value="GET">get</option>
                         <option value="POST">post</option>
@@ -39,22 +38,21 @@
                 </div>
             </div>
 
-            <div class="col-md-2 col-sm-12 d-flex justify-content-center"><a href="#"
-                    class="btn btn-success w-100 btn-lg active h-25 float-end mt-2" role="button" id="btn-get-json"
-                    aria-pressed="true">Submit</a></div>
-
-
+            <div class="col-12 col-md-2"><a href="#" class="btn btn-success w-100 btn-lg active" role="button"
+                    id="btn-get-json" aria-pressed="true">Submit</a>
+            </div>
 
         </div>
 
 
         <!-- for get -->
-        <div class="get d-none row px-5">
-            <div class="form-floating mt-4 ms-2 row" id="div-json-body">
-                <textarea class="form-control col" id="text-area-get" style="height: 200px"></textarea>
-                <label for="floatingTextarea2" class="px-5">Response Body</label>
-                <img class="col" src="" alt="" style="max-width: 200px;max-height: 200px;">
+        <div class="get d-none row col-12 mt-3 justify-content-around">
+            <div class="form-floating col-12 col-md-9 " id="div-json-body">
+                <textarea class="form-control" id="text-area-get" style="height: 310px"></textarea>
+                <label for="floatingTextarea2" class="">Response Body</label>
             </div>
+            <img class="col col-md-3 rounded img-thumbnail mx-auto d-block" src="" alt=""
+                style="max-height: fit-content;">
         </div>
 
 
@@ -62,19 +60,19 @@
         <div class="post d-none row">
             <div class="form-floating mt-4 col-sm-12 col-md-6" id="div-request-body">
                 <textarea class="form-control" style="height: 200px"></textarea>
-                <label for="floatingTextarea2" class="px-5">Request Body</label>
+                <label for="floatingTextarea2" class="">Request Body</label>
             </div>
 
             <div class="form-floating mt-4 col-sm-12 col-md-6" id="div-response-body">
                 <textarea class="form-control" style="height: 200px"></textarea>
-                <label for="floatingTextarea2" class="px-5">Response Body</label>
+                <label for="floatingTextarea2" class="">Response Body</label>
             </div>
 
         </div>
 
 
         <!-- status  -->
-        <div class="input-group h-25 mt-4 col px-5">
+        <div class="input-group h-25 mt-5 col mb-5">
             <span class="input-group-text bg-primary text-light">Status</span>
             <input type="text" class="form-control border border-1" aria-label="Example input"
                 aria-describedby="inputGroup" id="status">
