@@ -31,7 +31,8 @@
                     </li>
                 </ul>
                 <form class="d-flex" id="form">
-                    <input class="form-control me-2" placeholder="Search" aria-label="Search" autocomplete="off" id="inputSearchbar">
+                    <input class="form-control me-2" placeholder="Search" aria-label="Search" autocomplete="off"
+                        id="inputSearchbar">
                     <button type="button" class="btn btn-primary" id="btnSearch">Search</button>
                 </form>
             </div>
@@ -56,18 +57,33 @@
     <div class="modal fade" tabindex="-1" id="userProfileModal">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
+                <!-- <div class="modal-header">
                     <h5 class="modal-title text-primary mt-2"></h5>
                 </div>
                 <div class="modal-body p-0"></div>
-                <!-- <div class="modal-footer border-0"></div> -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" id="btnChange">Change</button>
+                    <button type="button" class="btn btn-danger d-none" id="btnDelete">Delete</button>
+                    <button type="button" class="btn btn-primary d-none" id="btnUpdate">Update</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div> -->
             </div>
         </div>
     </div>
     <!--modal end-->
+
+    <br>
+    
+    <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            Close
+        </button>
+        <button id="creationModal-submitButton" type="button" class="btn btn-primary">
+    </div> -->
 </body>
 <script src="./js/user-data.js"></script>
 <script src="./js/bootstrap.bundle.min.js"></script>
+<script src="./js/jquery-3.5.1.min.js"></script>
 <script src="./js/main.js"></script>
 
 </html>
