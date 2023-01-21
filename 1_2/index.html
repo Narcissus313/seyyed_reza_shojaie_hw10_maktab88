@@ -38,22 +38,25 @@
             </div>
         </div>
     </nav>
-    <!--nav end-->
+
 
     <!--card container start-->
     <div class="container-lg my-2 py-5">
+        <button type="button" class="btn btn-success ms-4" data-bs-toggle="modal" data-bs-target="#newUserModal"
+            onclick="newUserCreator()" id="btnCreate">
+            Create New User
+        </button>
+
         <div class="row" id="usersList"></div>
     </div>
-    <!--card container  end-->
 
     <!--pagination start-->
     <nav class="col-1 mx-auto mb-5" aria-label="..." id="nav">
         <ul class="col-1 mx-auto pagination pagination-md " id="pagesUl">
         </ul>
     </nav>
-    <!--pagination end-->
 
-    <!--modal start-->
+    <!--profile modal start-->
     <div class="modal fade" tabindex="-1" id="userProfileModal">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -70,10 +73,27 @@
             </div>
         </div>
     </div>
-    <!--modal end-->
+
+    <!--new user modal start-->
+    <div class="modal fade" tabindex="-1" id="newUserModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- <div class="modal-header">
+                    <h5 class="modal-title text-primary mt-2"></h5>
+                </div>
+                <div class="modal-body p-0"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" id="btnChange">Change</button>
+                    <button type="button" class="btn btn-danger d-none" id="btnDelete">Delete</button>
+                    <button type="button" class="btn btn-primary d-none" id="btnUpdate">Update</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div> -->
+            </div>
+        </div>
+    </div>
 
     <br>
-    
+
     <!-- <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
             Close

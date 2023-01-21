@@ -2,12 +2,11 @@ let userProfileModal = document.getElementById("userProfileModal");
 let inputSearchbar = document.getElementById("inputSearchbar");
 let modalHeader = document.querySelector(".modal-header");
 let usersListRow = document.getElementById("usersList");
-// let modalTitle = document.querySelector(".modal-title");
-let modal = $(".modal");
 let btnSearch = document.getElementById("btnSearch");
 let pagesUl = document.getElementById("pagesUl");
 let form = document.querySelector("#form");
 let modalContent = $(".modal-content");
+let modal = $(".modal");
 let btnEdit;
 let btnDelete;
 let btnUpdate;
@@ -16,34 +15,23 @@ let numberOfCardsPerPage = 6;
 let currentPage = 1;
 let usersData = fetchUserData();
 let lastUsers = usersData;
-// let emailAddresses=usersData
 
 function fetchUserData() {
-	let users;
-	$.ajax({
-		url: "https://reqres.in/api/users?page=1",
-		type: "GET",
-		data: {
-			name: "reza",
-			age: 34,
-		},
-		success: (response) => {
-			users = response.data;
-		},
-		async: false,
-	});
-	$.ajax({
-		url: "https://reqres.in/api/users?page=2",
-		type: "GET",
-		data: {
-			name: "reza",
-			age: 34,
-		},
-		success: (response) => {
-			users.push(...response.data);
-		},
-		async: false,
-	});
+	let users = [];
+	for (let i = 1; i < 3; i++) {
+		$.ajax({
+			url: `https://reqres.in/api/users?page=${i}`,
+			type: "GET",
+			data: {
+				name: "reza",
+				age: 34,
+			},
+			success: (response) => {
+				users.push(...response.data);
+			},
+			async: false,
+		});
+	}
 	return users;
 }
 
@@ -56,6 +44,32 @@ function validateEmail(email) {
 		if (user.email === email) return false;
 	}
 	return true;
+}
+
+function fieldRegexChecker(user = null) {
+	const nameRegex = /[a-zA-Z\s]+/;
+	const emailRegex = /^[a-zA-Z0-9_\.-]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+$/;
+	if (!!user) {
+		if (
+			!nameRegex.test($("#creationModal-fnameInput").val().trim()) ||
+			!nameRegex.test($("#creationModal-lnameInput").val().trim())
+		) {
+			alert("invalid first name or last name. just letters and space");
+			return false;
+		} else if (
+			user.email != $("#creationModal-emailInput").val() &&
+			!validateEmail($("#creationModal-emailInput").val())
+		) {
+			alert("Email exists. choose another one");
+			return false;
+		} else if (
+			!emailRegex.test($("#creationModal-emailInput").val().trim())
+		) {
+			alert("Email is wrong");
+			return false;
+		}
+		return true;
+	}
 }
 
 function userProfileModalCreator(data) {
@@ -115,18 +129,14 @@ function userProfileModalCreator(data) {
 	});
 	btnUpdate.on("click", () => {
 		let target = usersData.find((user) => user.id === targetUser.id);
-		target.first_name = $("#creationModal-fnameInput").val();
-		target.last_name = $("#creationModal-lnameInput").val();
-		if (
-			targetUser.email != $("#creationModal-emailInput").val() &&
-			!validateEmail($("#creationModal-emailInput").val())
-		) {
-			alert("the email exists");
-			return;
+
+		if (fieldRegexChecker(targetUser)) {
+			target.first_name = $("#creationModal-fnameInput").val();
+			target.last_name = $("#creationModal-lnameInput").val();
+			target.email = $("#creationModal-emailInput").val();
+			renderUsersList(usersData);
+			modal.modal("hide");
 		}
-		target.email = $("#creationModal-emailInput").val();
-		renderUsersList(usersData);
-		modal.modal("hide");
 	});
 	btnDelete.on("click", () => {
 		if (confirm("Are you sure you want to delete the user?")) {
@@ -137,12 +147,46 @@ function userProfileModalCreator(data) {
 	});
 }
 
+function newUserCreator() {
+	modalContent.html(`
+		<div class="modal-header">
+            <h5 class="modal-title text-primary mt-2">New User</h5>
+        </div>
+		<div class="modal-body p-0">
+			<div class="row p-3">
+				<div class="col p-3">
+					<div class="mb-3">
+						<label for="creationModal-fnameInput" class="form-label">Firstname *</label>
+						<input type="text" class="form-control" id="creationModal-fnameInput" value=""/>
+					</div>
+					<div class="mb-3">
+						<label for="creationModal-lnameInput" class="form-label">Lastname *</label>
+						<input type="text" class="form-control" id="creationModal-lnameInput" value=""/>
+					</div>
+					<div class="mb-3">
+						<label for="creationModal-emailInput" class="form-label">Email *</label>
+						<input type="email" class="form-control" id="creationModal-emailInput" value=""/>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-success px-4" id="btnEdit">Create</button>
+		</div>`);
+	let modalBody = $(".modal-body");
+	btnCreate = $("#btnCreate");
+	btnCreate.on("click", () => {
+		console.log(modalBody);
+	});
+}
+
 function userCardMaker(user) {
 	user.localImagePlace = `./images/${user["id"]}-image.jpg`;
 	return `
-	<div class="col-md-4 col-sm-6 my-1">
+	<div class="col-lg-4 ol-md-6 col-sm-6 ">
+		<div class=" my-1 p-4">
 		<div class="card px-2 shadow h-100">
-			<img src="${user.localImagePlace}" class="card-img-top my-2 rounded-3">
+			<img src="${user.localImagePlace}" class="card-img-top mb-2 px-3 rounded-3 mt-4">
 			<h5 class="card-title my-3 text-center fw-bold">${user.first_name} ${user.last_name}</h5>
 			<ul class="list-group list-group-flush h-25 fs-6">
 				<li class="list-group-item p-2">id: ${user.id}</li>
@@ -156,6 +200,7 @@ function userCardMaker(user) {
 				Profile
 			</button>
 		</div>
+	</div>
 	</div>`;
 }
 
